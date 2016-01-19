@@ -12,7 +12,6 @@ export default class Pitch extends React.Component {
   };
   
 	render() {
-    console.log(this.props);
 		return (<div>
       {this.props.players.map((layer) => {
         return layer.map((id) => {

@@ -8,9 +8,7 @@ import Footer from '../Footer/Footer';
 
 function getAppState() {
   let storeContents = ItemsStore.getAll();
-  console.log(storeContents);
   if(!storeContents.homeTeam && !storeContents.awayTeam) {
-    console.log('in here2');
     return {
       matchTeamsSection: {
         homeTeam: {
