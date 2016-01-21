@@ -1,4 +1,5 @@
 import React from 'react'
+import PositionGroup from '../PositionGroup/PositionGroup'
 
 let {PropTypes} = React;
 
@@ -13,10 +14,8 @@ export default class Pitch extends React.Component {
   
 	render() {
 		return (<div>
-      {this.props.players.map((layer) => {
-        return layer.map((id) => {
-          return (<div>{id}</div>); 
-        }, this)
+      {this.props.players.reverse().map((layer) => {
+        return (<PositionGroup players={layer} />);
       }, this)}
     </div>);
 	}
