@@ -7,13 +7,12 @@ let { PropTypes } = React;
 
 export default class Body extends React.Component {
 
- 
   render() {
-  console.log(this.props);
     return (
       <div className={styles.body}>
         <h1 className={styles.header}>Missing Men</h1>
-	      <Pitch players={this.props.matchTeamsSection.homeTeam.team.startingPitchFormation.leftToRightPlayerIds} />
+        <Pitch formation={this.props.matchTeamsSection.homeTeam.team.startingPitchFormation.leftToRightPlayerIds} 
+               startingLineup={this.props.matchTeamsSection.homeTeam.team.lastMatchTeamSheet.startingLineUp} />
       </div>
     );
   }

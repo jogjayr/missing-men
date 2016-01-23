@@ -26,7 +26,6 @@ let store = new ItemsStore();
 AppDispatcher.register((action) => {
   switch(action.actionType) {
     case ITEMS_GET_SUCCESS:
-      console.log(action);
       store.setAll(action.matchTeamsSection);
       break;
     default:

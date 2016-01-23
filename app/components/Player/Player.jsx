@@ -3,13 +3,13 @@ import React from 'react';
 
 let { PropTypes } = React;
 
-export default class Body extends React.Component {
+export default class Player extends React.Component {
 
  
   render() {
     return (
       <span>
-        {this.props.playerId}
+        {this.props.playerDetails.fullName}
       </span>
     );
   }

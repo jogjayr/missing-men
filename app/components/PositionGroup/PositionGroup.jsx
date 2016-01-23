@@ -4,14 +4,12 @@ import Player from '../Player/Player'
 
 let { PropTypes } = React;
 
-export default class Body extends React.Component {
-
- 
+export default class PositionGroup extends React.Component {
   render() {
     return (
       <div>
-      {this.props.players.map((id) => {
-        return (<Player playerId={id} />);
+      {this.props.players.map((player) => {
+        return (<Player playerDetails={player} />);
       }, this)}
       </div>
     );
