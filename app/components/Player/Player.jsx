@@ -9,11 +9,13 @@ export default class Player extends React.Component {
     this.state = {
       isSolved: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(evt) {
-    if(evt.target.value === this.props.playerDetails.fullName) {
-      this.state.isSolved = true;
+    if(evt.target.value.toLowerCase() === this.props.playerDetails.fullName.toLowerCase()) {
+      this.setState({isSolved: true});
     }
   }
  
