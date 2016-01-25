@@ -10,17 +10,17 @@ export default class Pitch extends React.Component {
   }
   render() {
     let {props} = this;
-    this.state.formation = props.formation.map((layer) => {
+    let formation = props.formation.map((layer) => {
       return layer.map((playerId) => {
         if(props.startingLineup) {
           return props.startingLineup.filter(function(player) {
             return player.id === playerId.toString();
-          }, this)[0];          
+          }, this)[0];
         }
       }, this);
     }, this);
     return (<div>
-      {this.state.formation.reverse().map((layer) => {
+      {formation.reverse().map((layer) => {
         return (<PositionGroup players={layer}/>);
       }, this)}
     </div>);
