@@ -16,11 +16,38 @@ function getAppState() {
             startingPitchFormation: {
               leftToRightPlayerIds: [[]]
             },
+            club: {
+              name: ''
+            },
             lastMatchTeamSheet: {
               startingLineup: []
             }
+          },
+          lastMatchResult: {
+            finalScore: {
+              home: ''
+            }
+          }
+        },
+        awayTeam: {
+          team: {
+            startingPitchFormation: {
+              leftToRightPlayerIds: [[]]
+            },
+            club: {
+              name: ''
+            },
+            lastMatchTeamSheet: {
+              startingLineup: []
+            }
+          },
+          lastMatchResult: {
+            finalScore: {
+              away: ''
+            }
           }
         }
+
       }
     };
   }
@@ -32,7 +59,7 @@ function getAppState() {
 export default class App extends React.Component {
 
   state = getAppState()
-  
+
   componentDidMount() {
     ItemsStore.addChangeListener(this.onChange);
     AppActions.getItems();
