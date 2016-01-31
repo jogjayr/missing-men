@@ -6,7 +6,12 @@ import Pitch from '../Pitch/Pitch';
 let { PropTypes } = React;
 
 export default class Body extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFinished: false
+    };
+  }
   render() {
     let {matchTeamsSection} = this.props;
     return (
