@@ -1,6 +1,9 @@
 import styles from './_Player.scss';
 import React from 'react';
-
+import AppDispatcher from '../../dispatcher/AppDispatcher';
+import {
+  PLAYER_SOLVED
+} from '../../constants/AppConstants';
 
 export default class Player extends React.Component {
 
@@ -15,6 +18,10 @@ export default class Player extends React.Component {
   handleChange(evt) {
     if(evt.target.value.toLowerCase() === this.props.playerDetails.fullName.toLowerCase()) {
       this.setState({isSolved: true});
+      AppDispatcher.dispatch({
+        actionType: PLAYER_SOLVED,
+        player: this.props.playerDetails
+      });
     }
   }
 

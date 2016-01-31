@@ -8,7 +8,6 @@ export default class BaseStore extends EventEmitter {
   }
 
   setAll(items) {
-    console.log(items);
     this.data = items;
     this.emitChange();
   }
@@ -29,3 +28,4 @@ export default class BaseStore extends EventEmitter {
     this.emitChange();
   }
 }
+
