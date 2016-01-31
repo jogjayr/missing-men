@@ -26,3 +26,4 @@ export default class Pitch extends React.Component {
     </div>);
   }
 }
+

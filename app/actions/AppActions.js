@@ -8,10 +8,8 @@ import {
 
 export default {
   getItems() {
-    console.log('getting items');
     WebAPI.getItems()
     .then((data) => {
-      console.log(data);
       AppDispatcher.dispatch({
         actionType: ITEMS_GET_SUCCESS,
         matchTeamsSection: data.matchTeamsSection
@@ -24,3 +22,4 @@ export default {
     });
   }
 };
+

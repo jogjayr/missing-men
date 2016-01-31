@@ -7,50 +7,6 @@ import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
 
 function getAppState() {
-  let storeContents = ItemsStore.getAll();
-  if(!storeContents.homeTeam && !storeContents.awayTeam) {
-    return {
-      matchTeamsSection: {
-        homeTeam: {
-          team: {
-            startingPitchFormation: {
-              leftToRightPlayerIds: [[]]
-            },
-            club: {
-              name: ''
-            },
-            lastMatchTeamSheet: {
-              startingLineup: []
-            }
-          },
-          lastMatchResult: {
-            finalScore: {
-              home: ''
-            }
-          }
-        },
-        awayTeam: {
-          team: {
-            startingPitchFormation: {
-              leftToRightPlayerIds: [[]]
-            },
-            club: {
-              name: ''
-            },
-            lastMatchTeamSheet: {
-              startingLineup: []
-            }
-          },
-          lastMatchResult: {
-            finalScore: {
-              away: ''
-            }
-          }
-        }
-
-      }
-    };
-  }
   return {
     matchTeamsSection: ItemsStore.getAll()
   };
@@ -74,11 +30,16 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className={styles.app}>
-        <Body matchTeamsSection={this.state.matchTeamsSection} />
-        <Footer />
-      </div>
-    );
+    if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
+      return (
+        <div className={styles.app}>
+          <Body matchTeamsSection={this.state.matchTeamsSection} />
+          <Footer />
+        </div>
+      );
+    } else {
+      return (<div></div>);
+    }
   }
 }
+

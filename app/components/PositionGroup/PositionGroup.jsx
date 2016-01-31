@@ -15,3 +15,4 @@ export default class PositionGroup extends React.Component {
     );
   }
 }
+
