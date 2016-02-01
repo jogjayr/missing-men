@@ -9,7 +9,9 @@ import Footer from '../Footer/Footer';
 
 function getAppState() {
   return {
-    matchTeamsSection: ItemsStore.getAll()
+    matchTeamsSection: AppStateStore.matchTeamsSection,
+    finishedSolving: AppStateStore.finishedSolving,
+    startTime: AppStateStore.startTime
   };
 }
 
@@ -18,12 +20,12 @@ export default class App extends React.Component {
   state = getAppState()
 
   componentDidMount() {
-    ItemsStore.addChangeListener(this.onChange);
+    AppStateStore.addChangeListener(this.onChange);
     AppActions.getItems();
   }
 
   componentWillUnmount() {
-    ItemsStore.removeChangeListener(this.onChange);
+    AppStateStore.removeChangeListener(this.onChange);
   }
 
   onChange = () => {

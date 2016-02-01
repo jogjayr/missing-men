@@ -23,14 +23,14 @@ class ItemsStore extends BaseStore {
 
 let store = new ItemsStore();
 
-AppDispatcher.register((action) => {
-  switch(action.actionType) {
-    case ITEMS_GET_SUCCESS:
-      store.setAll(action.matchTeamsSection);
-      break;
-    default:
-  }
-});
+//AppDispatcher.register((action) => {
+//  switch(action.actionType) {
+//    case ITEMS_GET_SUCCESS:
+//      store.setAll(action.matchTeamsSection);
+//      break;
+//    default:
+//  }
+//});
 
 export default store;
 

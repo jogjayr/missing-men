@@ -1,34 +1,58 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
+import {EventEmitter} from 'events';
 
 import {
   PLAYER_SOLVED,
   GAME_STARTED,
-  GAME_ENDED
+  GAME_ENDED,
+  ITEMS_GET_SUCCESS,
+  ITEMS_UPDATED,
+  ITEMS_GET_ERROR
 } from '../constants/AppConstants';
 
-class AppStateStore {
-  constructor() {
-    this.solvedPlayers = [];
+class AppStateStore extends EventEmitter{
+  constructor(...args) {
+    super(...args);
     this.finishedSolving = false;
     this.elapsedTime = 0;
   }
+
   emitChange() {
+    this.emit(ITEMS_UPDATED);
   }
+
+  addChangeListener(callback) {
+    this.on(ITEMS_UPDATED, callback);
+  }
+
+  removeChangeListener(callback) {
+    this.removeListener(ITEMS_UPDATED, callback);
+  }
+
 }
 
 let store = new AppStateStore();
 
 AppDispatcher.register((action) => {
-    switch (action.actionType) {
-      case PLAYER_SOLVED:
-        console.log(action);
-        store.solvedPlayers.push(action.player);
-      case GAME_ENDED:
-        store.finishedSolving = true;
-      case GAME_STARTED:
-        store.startedTime = new Date();
-        store.elapsedTime = new Date() - store.startedTime;
-    }
+  switch (action.actionType) {
+    case PLAYER_SOLVED:
+      action.player.isSolved = true;
+      break;
+    case GAME_ENDED:
+      store.finishedSolving = true;
+      break;
+    case GAME_STARTED:
+      store.startTime = new Date();
+      break;
+    case ITEMS_GET_SUCCESS:
+      store.matchTeamsSection = action.matchTeamsSection;
+      break;
+    case ITEMS_GET_ERROR:
+      console.log(action);
+      break;
+  }
+  store.emitChange();
 });
 
 export default store;
+

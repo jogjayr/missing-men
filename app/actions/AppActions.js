@@ -10,12 +10,14 @@ export default {
   getItems() {
     WebAPI.getItems()
     .then((data) => {
+      console.log('this is probably going to cause an exception')
       AppDispatcher.dispatch({
         actionType: ITEMS_GET_SUCCESS,
         matchTeamsSection: data.matchTeamsSection
       });
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log('got here');
       AppDispatcher.dispatch({
         actionType: ITEMS_GET_ERROR
       });
