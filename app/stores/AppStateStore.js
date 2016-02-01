@@ -48,7 +48,6 @@ AppDispatcher.register((action) => {
       store.matchTeamsSection = action.matchTeamsSection;
       break;
     case ITEMS_GET_ERROR:
-      console.log(action);
       break;
   }
   store.emitChange();
