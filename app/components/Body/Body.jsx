@@ -9,13 +9,12 @@ let { PropTypes } = React;
 export default class Body extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isFinished: false
-    };
   }
+
   startGame() {
     AppActions.startGame();
   }
+
   render() {
     let buttonOrPitch;
     let {matchTeamsSection, hasStarted} = this.props;
@@ -34,8 +33,8 @@ export default class Body extends React.Component {
           <span> - </span>
           <span>{matchTeamsSection.awayTeam.lastMatchResult.finalScore.away} </span>
           <span>{matchTeamsSection.awayTeam.team.club.name}</span>
-          <div>{buttonOrPitch}</div>
         </h2>
+        <div>{buttonOrPitch}</div>
       </div>
     );
   }
