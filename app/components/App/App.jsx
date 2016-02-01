@@ -2,7 +2,6 @@ import styles from './_App.scss';
 
 import React from 'react';
 import AppActions from '../../actions/AppActions';
-import ItemsStore from '../../stores/ItemsStore';
 import AppStateStore from '../../stores/AppStateStore';
 import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
