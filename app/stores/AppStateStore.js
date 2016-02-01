@@ -15,6 +15,7 @@ class AppStateStore extends EventEmitter{
     super(...args);
     this.finishedSolving = false;
     this.elapsedTime = 0;
+    this.hasStarted = false;
   }
 
   emitChange() {
@@ -43,6 +44,7 @@ AppDispatcher.register((action) => {
       break;
     case GAME_STARTED:
       store.startTime = new Date();
+      store.hasStarted = true;
       break;
     case ITEMS_GET_SUCCESS:
       store.matchTeamsSection = action.matchTeamsSection;

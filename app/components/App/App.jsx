@@ -10,7 +10,8 @@ function getAppState() {
   return {
     matchTeamsSection: AppStateStore.matchTeamsSection,
     finishedSolving: AppStateStore.finishedSolving,
-    startTime: AppStateStore.startTime
+    startTime: AppStateStore.startTime,
+    hasStarted: AppStateStore.hasStarted
   };
 }
 
