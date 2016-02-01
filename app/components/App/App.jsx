@@ -4,6 +4,7 @@ import React from 'react';
 import AppActions from '../../actions/AppActions';
 import AppStateStore from '../../stores/AppStateStore';
 import Body from '../Body/Body';
+import Timer from '../Timer/Timer';
 import Footer from '../Footer/Footer';
 
 function getAppState() {
@@ -32,15 +33,23 @@ export default class App extends React.Component {
     this.setState(getAppState());
   }
 
+  startGame() {
+    AppActions.startGame();
+  }
+
   render() {
     if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
-      return (
-        <div className={styles.app}>
-          <Body matchTeamsSection={this.state.matchTeamsSection}
-                hasStarted={this.state.hasStarted}/>
-          <Footer />
-        </div>
-      );
+      if(this.state.hasStarted) {
+        return (
+          <div className={styles.app}>
+            <Timer startTime={this.state.startTime.valueOf()} />
+            <Body matchTeamsSection={this.state.matchTeamsSection} />
+            <Footer />
+          </div>
+        );
+      } else {
+        return (<button onClick={this.startGame}>Start Game</button>);
+      }
     } else {
       return (<div></div>);
     }

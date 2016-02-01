@@ -14,7 +14,6 @@ class AppStateStore extends EventEmitter{
   constructor(...args) {
     super(...args);
     this.finishedSolving = false;
-    this.elapsedTime = 0;
     this.hasStarted = null;
   }
 
