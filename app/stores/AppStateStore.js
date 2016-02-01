@@ -15,7 +15,7 @@ class AppStateStore extends EventEmitter{
     super(...args);
     this.finishedSolving = false;
     this.elapsedTime = 0;
-    this.hasStarted = false;
+    this.hasStarted = null;
   }
 
   emitChange() {

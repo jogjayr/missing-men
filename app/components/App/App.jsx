@@ -36,7 +36,8 @@ export default class App extends React.Component {
     if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
       return (
         <div className={styles.app}>
-          <Body matchTeamsSection={this.state.matchTeamsSection} />
+          <Body matchTeamsSection={this.state.matchTeamsSection}
+                hasStarted={this.state.hasStarted}/>
           <Footer />
         </div>
       );

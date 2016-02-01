@@ -3,7 +3,8 @@ import WebAPI from '../util/WebAPI';
 
 import {
   ITEMS_GET_SUCCESS,
-  ITEMS_GET_ERROR
+  ITEMS_GET_ERROR,
+  GAME_STARTED
 } from '../constants/AppConstants';
 
 export default {
@@ -20,6 +21,12 @@ export default {
       AppDispatcher.dispatch({
         actionType: ITEMS_GET_ERROR
       });
+    });
+  },
+
+  startGame() {
+    AppDispatcher.dispatch({
+      actionType: GAME_STARTED
     });
   }
 };
