@@ -11,14 +11,14 @@ function getAppState() {
   let finishedSolving;
   if(AppStateStore.matchTeamsSection) {
     finishedSolving = AppStateStore.matchTeamsSection.homeTeam.team.lastMatchTeamSheet.startingLineUp.reduce((allSolved, player) => {
-      player.isSolved && allSolved;
+      return player.isSolved && allSolved;
     }, true);
   } else {
     finishedSolving = AppStateStore.finishedSolving;
   }
   return {
     matchTeamsSection: AppStateStore.matchTeamsSection,
-    finishedSolving: AppStateStore.finishedSolving,
+    finishedSolving: finishedSolving,
     startTime: AppStateStore.startTime,
     hasStarted: AppStateStore.hasStarted
   };
