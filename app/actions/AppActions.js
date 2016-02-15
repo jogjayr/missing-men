@@ -17,7 +17,6 @@ export default {
       });
     })
     .catch((e) => {
-      console.log(e);
       AppDispatcher.dispatch({
         actionType: ITEMS_GET_ERROR
       });

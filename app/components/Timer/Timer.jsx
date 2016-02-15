@@ -17,9 +17,13 @@ export default class Timer extends React.Component {
   }
 
   tick() {
-    this.setState({
-      elapsedTime: (new Date() - this.props.startTime) / 1000
-    });
+    if(!this.props.finishedSolving) {
+      this.setState({
+        elapsedTime: (new Date() - this.props.startTime) / 1000
+      });
+    } else {
+      clearInterval(this.timer);
+    }
   }
 
   componentWillUnmount() {

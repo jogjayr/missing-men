@@ -8,6 +8,14 @@ import Timer from '../Timer/Timer';
 import Footer from '../Footer/Footer';
 
 function getAppState() {
+  let finishedSolving;
+  if(AppStateStore.matchTeamsSection) {
+    finishedSolving = AppStateStore.matchTeamsSection.homeTeam.team.lastMatchTeamSheet.startingLineUp.reduce((allSolved, player) => {
+      player.isSolved && allSolved;
+    }, true);
+  } else {
+    finishedSolving = AppStateStore.finishedSolving;
+  }
   return {
     matchTeamsSection: AppStateStore.matchTeamsSection,
     finishedSolving: AppStateStore.finishedSolving,
@@ -45,7 +53,9 @@ export default class App extends React.Component {
           if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
             if(this.state.hasStarted) {
               return ([<Body matchTeamsSection={this.state.matchTeamsSection} />,
-                       <Timer startTime={this.state.startTime.valueOf()} />]);
+                       <Timer startTime={this.state.startTime.valueOf()} finishedSolving={this.state.finishedSolving} />]);
+            } else if(this.state.finishedSolving) {
+
             } else {
               return(<button onClick={this.startGame}>Start Game</button>);
             }
