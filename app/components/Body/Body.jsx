@@ -17,7 +17,6 @@ export default class Body extends React.Component {
     let {matchTeamsSection, hasStarted} = this.props;
     return (
       <div className={styles.body}>
-        <h1 className={styles.header}>Missing Men</h1>
         <h2 className={styles.matchResult}>
           <span>{matchTeamsSection.homeTeam.team.club.name} </span>
           <span>{matchTeamsSection.homeTeam.lastMatchResult.finalScore.home}</span>

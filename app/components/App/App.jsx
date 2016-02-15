@@ -38,21 +38,25 @@ export default class App extends React.Component {
   }
 
   render() {
-    if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
-      if(this.state.hasStarted) {
-        return (
-          <div className={styles.app}>
-            <Timer startTime={this.state.startTime.valueOf()} />
-            <Body matchTeamsSection={this.state.matchTeamsSection} />
-            <Footer />
-          </div>
-        );
-      } else {
-        return (<button onClick={this.startGame}>Start Game</button>);
-      }
-    } else {
-      return (<div></div>);
-    }
+    return (
+      <div className={styles.app}>
+        <h1 className={styles.header}>Missing Men</h1>
+        {(() => {
+          if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
+            if(this.state.hasStarted) {
+              return ([<Body matchTeamsSection={this.state.matchTeamsSection} />,
+                       <Timer startTime={this.state.startTime.valueOf()} />]);
+            } else {
+              return(<button onClick={this.startGame}>Start Game</button>);
+            }
+          }
+          else {
+            return (<div></div>);
+          }
+        }) ()}
+
+        <Footer />
+      </div>);
   }
 }
 
