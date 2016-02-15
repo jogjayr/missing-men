@@ -35,7 +35,7 @@ var config = {
   entry: entry,
   output: {
     path: path.resolve(pkg.config.buildDir),
-    publicPath: '/',
+    publicPath: 'http://0.0.0.0:8000/',
     filename: jsBundle,
     pathinfo: false
   },

@@ -1,6 +1,7 @@
 import React from 'react'
 import PositionGroup from '../PositionGroup/PositionGroup'
 
+import styles from './_Pitch.scss';
 let {PropTypes} = React;
 
 export default class Pitch extends React.Component {
@@ -19,7 +20,7 @@ export default class Pitch extends React.Component {
         }
       }, this);
     }, this);
-    return (<div>
+    return (<div className={styles.pitch}>
       {formation.reverse().map((layer) => {
         return (<PositionGroup players={layer}/>);
       }, this)}
