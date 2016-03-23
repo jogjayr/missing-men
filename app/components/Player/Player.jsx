@@ -10,6 +10,8 @@ export default class Player extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.okToNotReplaceWithAsterisk = [' ', '\'', '-'];
+    this.okToNotReplaceWithAsterisk = new Set(this.okToNotReplaceWithAsterisk);
   }
 
   handleChange(evt) {
@@ -27,10 +29,11 @@ export default class Player extends React.Component {
   render() {
     let {playerDetails} = this.props;
     let placeholderString, playerInput;
+    let self = this;
     if(playerDetails) {
       if(!playerDetails.isSolved) {
         placeholderString = playerDetails.fullName.split('').map(function(char) {
-          if(char === ' ' || char === '\'') {
+          if(self.okToNotReplaceWithAsterisk.has(char)) {
             return char;
           } else {
             return '*';
