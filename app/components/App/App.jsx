@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 function getAppState() {
   let finishedSolving;
   if(AppStateStore.matchTeamsSection) {
-    finishedSolving = AppStateStore.matchTeamsSection.homeTeam.team.lastMatchTeamSheet.startingLineUp.reduce((allSolved, player) => {
+    finishedSolving = AppStateStore.matchTeamsSection.awayTeam.team.lastMatchTeamSheet.startingLineUp.reduce((allSolved, player) => {
       return player.isSolved && allSolved;
     }, true);
   } else {
@@ -50,7 +50,7 @@ export default class App extends React.Component {
       <div className={styles.app}>
         <h1 className={styles.header}>Missing Men</h1>
         {(() => {
-          if(this.state.matchTeamsSection && this.state.matchTeamsSection.homeTeam) {
+          if(this.state.matchTeamsSection && this.state.matchTeamsSection.awayTeam) {
             if(this.state.hasStarted) {
               return ([<Body matchTeamsSection={this.state.matchTeamsSection} />,
                        <Timer startTime={this.state.startTime.valueOf()} finishedSolving={this.state.finishedSolving} />]);

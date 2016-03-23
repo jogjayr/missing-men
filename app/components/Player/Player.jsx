@@ -13,7 +13,10 @@ export default class Player extends React.Component {
   }
 
   handleChange(evt) {
-    if(evt.target.value.toLowerCase() === this.props.playerDetails.fullName.toLowerCase()) {
+    var enteredName = evt.target.value.toLowerCase();
+    var playerName = this.props.playerDetails.fullName.toLowerCase();
+
+    if(enteredName.localeCompare(playerName, 'search', {sensitivity: 'base'}) === 0) {
       AppDispatcher.dispatch({
         actionType: PLAYER_SOLVED,
         player: this.props.playerDetails

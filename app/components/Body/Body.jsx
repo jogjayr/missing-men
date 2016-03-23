@@ -24,8 +24,8 @@ export default class Body extends React.Component {
           <span>{matchTeamsSection.awayTeam.lastMatchResult.finalScore.away} </span>
           <span>{matchTeamsSection.awayTeam.team.club.name}</span>
         </h2>
-        <Pitch formation={matchTeamsSection.homeTeam.team.startingPitchFormation.leftToRightPlayerIds}
-               startingLineup={matchTeamsSection.homeTeam.team.lastMatchTeamSheet.startingLineUp} />
+        <Pitch formation={matchTeamsSection.awayTeam.team.startingPitchFormation.leftToRightPlayerIds}
+               startingLineup={matchTeamsSection.awayTeam.team.lastMatchTeamSheet.startingLineUp} />
       </div>
     );
   }
