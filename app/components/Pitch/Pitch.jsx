@@ -1,8 +1,7 @@
-import React from 'react'
-import PositionGroup from '../PositionGroup/PositionGroup'
+import React from 'react';
+import PositionGroup from '../PositionGroup/PositionGroup';
 
 import styles from './_Pitch.scss';
-let {PropTypes} = React;
 
 export default class Pitch extends React.Component {
   constructor(props) {

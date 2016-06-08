@@ -16,7 +16,7 @@ export default {
         matchTeamsSection: data.matchTeamsSection
       });
     })
-    .catch((e) => {
+    .catch(() => {
       AppDispatcher.dispatch({
         actionType: ITEMS_GET_ERROR
       });

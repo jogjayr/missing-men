@@ -1,20 +1,14 @@
 import styles from './_Body.scss';
 import React from 'react';
-import Menu from '../Menu/Menu';
 import Pitch from '../Pitch/Pitch';
-import AppActions from '../../actions/AppActions';
-
-let { PropTypes } = React;
 
 export default class Body extends React.Component {
   constructor(props) {
     super(props);
   }
 
-
   render() {
-    let buttonOrPitch;
-    let {matchTeamsSection, hasStarted} = this.props;
+    let {matchTeamsSection} = this.props;
     return (
       <div className={styles.body}>
         <h2 className={styles.matchResult}>

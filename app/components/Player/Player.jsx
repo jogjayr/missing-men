@@ -39,11 +39,11 @@ export default class Player extends React.Component {
             return '*';
           }
         }).join('');
-        playerInput = (<input type='text' placeholder={placeholderString} onChange={this.handleChange} />);
+        playerInput = (<input onChange={this.handleChange} placeholder={placeholderString} type='text'/>);
       }
       else {
         placeholderString = '';
-        playerInput = (<input type='text' value={playerDetails.fullName} readonly />);
+        playerInput = (<input readOnly type='text' value={playerDetails.fullName} />);
       }
 
       return (
